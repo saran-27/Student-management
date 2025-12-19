@@ -23,36 +23,53 @@ function AddStudent() {
     });
   };
 
-   const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    try {
-      const response = await fetch("https://student-management-django-api-5.onrender.com/student/Rank/", {
+  // Convert marks to numbers before sending
+  const payload = {
+    student_name: studentData.student_name,
+    tamil: Number(studentData.tamil),
+    english: Number(studentData.english),
+    maths: Number(studentData.maths),
+    science: Number(studentData.science),
+    computer: Number(studentData.computer),
+  };
+
+  try {
+    const response = await fetch(
+      "https://student-management-django-api-5.onrender.com/studentrank/Rank/",
+      {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(studentData)
-      });
+        body: JSON.stringify(payload),
+      }
+    );
 
-      if (!response.ok) throw new Error("Network response not ok");
-
-      const data = await response.json();
-      setResultData(data);
-
-      // Reset form
-      setStudentData({
-        student_name: "",
-        tamil: "",
-        english: "",
-        maths: "",
-        science: "",
-        computer: ""
-      });
-
-    } catch (error) {
-      console.error("Error submitting marks:", error);
-      alert("Failed to submit. Check backend or CORS.");
+    if (!response.ok) {
+      const text = await response.text();
+      console.error("Backend error response:", text);
+      throw new Error(`Network response not ok: ${response.status}`);
     }
-  };
+
+    const data = await response.json();
+    setResultData(data);
+
+    // Reset form
+    setStudentData({
+      student_name: "",
+      tamil: "",
+      english: "",
+      maths: "",
+      science: "",
+      computer: "",
+    });
+  } catch (error) {
+    console.error("Error submitting marks:", error);
+    alert("Failed to submit. Check backend logs.");
+  }
+};
+
 
   return (
     <div className='Add-student'>
