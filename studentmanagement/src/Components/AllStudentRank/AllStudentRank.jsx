@@ -20,7 +20,7 @@ function AllStudentRank() {
   },[]);
 
   const handleDelete=(id)=>{
-    axios.delete(`https://student-management-django-api-5.onrender.com/studentrank/Rank/${id}/`)
+    axios.delete(`https://student-management-django-api-5.onrender.com/student/Rank/${id}/`)
     .then(()=>{
       alert('Student marks deleted successfully!');
     })

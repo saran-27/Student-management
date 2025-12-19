@@ -27,7 +27,7 @@ function AddStudent() {
     e.preventDefault();
 
     try {
-      const response = await fetch("https://student-management-django-api-5.onrender.com/studentrank/Rank/", {
+      const response = await fetch("https://student-management-django-api-5.onrender.com/student/Rank/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(studentData)

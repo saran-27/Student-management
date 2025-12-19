@@ -19,7 +19,7 @@ function UpdateMark() {
 
   // get single student data by id
   useEffect(() => {
-    axios.get(`https://student-management-django-api-5.onrender.com/studentrank/Rank/${id}/`)
+    axios.get(`https://student-management-django-api-5.onrender.com/student/Rank/${id}/`)
       .then((response) => {
         setFormData(response.data);
       })
@@ -36,7 +36,7 @@ function UpdateMark() {
   };
 
    const handleUpdate = () => {
-  axios.put(`https://student-management-django-api-5.onrender.com/studentrank/Rank/${id}/`, formData)
+  axios.put(`https://student-management-django-api-5.onrender.com/student/Rank/${id}/`, formData)
     .then(() => {
       alert('Student marks updated successfully!');
     })
