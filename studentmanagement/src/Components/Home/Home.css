@@ -1,0 +1,59 @@
+body{
+      font-family: "Space Grotesk", sans-serif;
+      overflow-x: hidden;
+
+}
+.Top-header{
+    background-color: slategrey;
+    
+}
+.top-left{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 21px;
+}
+.top-left h1{
+    font-size: 25px;
+    font-weight: 500;
+    color: darkkhaki;
+    text-transform: capitalize;
+    text-decoration:underline;
+}
+.top-left img{
+   width: 7%;
+    height: 7vh;
+}
+.Top-head-right li{
+    list-style: none;
+    cursor: pointer;
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 17px;
+    font-weight: 500;
+    color: darkkhaki;
+
+}
+
+
+    
+@media (max-width:768px){
+    .top-left h1{
+        font-size: 20px;
+    }
+    .top-left img{
+                width: 27%;
+        height: 6vh;
+    }
+    .Top-head-right li{
+        font-size: 14px;
+    }
+    .update-form h1 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 22px;
+    color: darkcyan;
+    padding: 36px;
+    font-weight: 900;
+}
+}
