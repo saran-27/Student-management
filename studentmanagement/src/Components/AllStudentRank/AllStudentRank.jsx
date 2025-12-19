@@ -10,7 +10,7 @@ function AllStudentRank() {
   const [allrank,setAllRank]=useState([]);
 
   useEffect(()=>{
-    axios.get("https://student-management-django-api-5.onrender.com/studentrank/Rank/")
+    axios.get("https://student-management-django-api-5.onrender.com/student/Rank/")
     .then((res)=>{
       setAllRank(res.data);
     })
